@@ -28,7 +28,7 @@ namespace VinylRecordsApplication.Pages.Supply.Elements
             // Сохраняем данные о странице Маин
             this.main = main;
             // В поле поставщика указываем поставщика, предварительно найдя его по уникальному коду
-            tbManufacturer.Text = AllManufacturers.Where(x => x.Id == supply.IdManufacruer).First().Name;
+            tbManufacturer.Text = AllManufacturers.Where(x => x.Id == supply.IdManufacturer).First().Name;
             // В поле пластинки указываем пластинку, предварительно найдя её по уникальному коду
             tbRecord.Text = AllRecords.Where(x => x.Id == supply.IdRecord).First().Name;
             // В дату поставки указываем данные о дате поставки

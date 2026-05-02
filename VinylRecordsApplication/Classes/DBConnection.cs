@@ -5,12 +5,11 @@ namespace VinylRecordsApplication.Classes
 {
     public class DBConnection
     {
-        public static DataTable Connection(string SQL)
-        {
+        public static DataTable Connection(string SQL) {
             // Создаём локальную таблицу данных
             DataTable dataTable = new DataTable("Datatable");
             // Подключаемся к серверу
-            SqlConnection sqlConnection = new SqlConnection("server=***;Trusted_Connection=No;DataBase=***;User=***;PWD=***");
+            SqlConnection sqlConnection = new SqlConnection("Server=localhost\\SQLEXPRESS;Database=VinylRecords;Trusted_Connection=True;TrustServerCertificate=True;");
             // Открываем соединение
             sqlConnection.Open();
             // Создаём команду

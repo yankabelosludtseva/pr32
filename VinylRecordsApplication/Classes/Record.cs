@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using Excel = Microsoft.Office.Interop.Excel;
-
 namespace VinylRecordsApplication.Classes
 {
     public class Record
@@ -114,6 +112,58 @@ namespace VinylRecordsApplication.Classes
         {
             // Выполняем SQL запрос на удаление данных в БД
             Classes.DBConnection.Connection($"DELETE FROM [dbo].[Record] WHERE [Id] = {this.Id};");
+        }
+
+        public static void Export(string filePath, List<Record> records)
+        {
+            // Используем ClosedXML (если выбрали решение 1)
+            using (var workbook = new ClosedXML.Excel.XLWorkbook())
+            {
+                var worksheet = workbook.Worksheets.Add("Vinyl Records");
+
+                // Заголовки
+                worksheet.Cell(1, 1).Value = "ID";
+                worksheet.Cell(1, 2).Value = "Название";
+                worksheet.Cell(1, 3).Value = "Год";
+                worksheet.Cell(1, 4).Value = "Формат";
+                worksheet.Cell(1, 5).Value = "Размер";
+                worksheet.Cell(1, 6).Value = "Производитель";
+                worksheet.Cell(1, 7).Value = "Цена";
+                worksheet.Cell(1, 8).Value = "Состояние";
+                worksheet.Cell(1, 9).Value = "Описание";
+
+                // Данные
+                int row = 2;
+                foreach (var record in records)
+                {
+                    worksheet.Cell(row, 1).Value = record.Id;
+                    worksheet.Cell(row, 2).Value = record.Name;
+                    worksheet.Cell(row, 3).Value = record.Year;
+                    worksheet.Cell(row, 4).Value = record.Format == 0 ? "Моно" : "Стерео";
+                    worksheet.Cell(row, 5).Value = record.Size;
+                    string sizeText = "Иное";
+                    switch (record.Size)
+                    {
+                        case 0:
+                            sizeText = "7 дюймов";
+                            break;
+                        case 1:
+                            sizeText = "10 дюймов";
+                            break;
+                        case 2:
+                            sizeText = "12 дюймов";
+                            break;
+                    }
+                    worksheet.Cell(row, 5).Value = sizeText;
+                    worksheet.Cell(row, 6).Value = record.IdManufacturer;
+                    worksheet.Cell(row, 7).Value = record.Price;
+                    worksheet.Cell(row, 8).Value = record.IdState;
+                    worksheet.Cell(row, 9).Value = record.Description;
+                    row++;
+                }
+
+                workbook.SaveAs(filePath);
+            }
         }
     }
 }

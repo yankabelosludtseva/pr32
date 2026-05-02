@@ -45,7 +45,7 @@ namespace VinylRecordsApplication.Pages.Supply
                 this.changeSupply = changeSupply;
                 // Из всех поставщиков выбираем того поставщика, который числится за поставкой
                 // Для этого из всех поставщиков находим по ключу, и находим его индекс в списке
-                tbManufacturer.SelectedIndex = AllManufacturers.ToList().FindIndex(x => x.Id == changeSupply.IdManufacruer);
+                tbManufacturer.SelectedIndex = AllManufacturers.ToList().FindIndex(x => x.Id == changeSupply.IdManufacturer);
                 // Из всех пластинок выбираем пластинку, которая числится в поставке
                 // Для этого из всех пластинок, находим по ключу и находим её индекс
                 tbRecord.SelectedIndex = AllRecords.ToList().FindIndex(x => x.Id == changeSupply.IdRecord);
@@ -82,7 +82,7 @@ namespace VinylRecordsApplication.Pages.Supply
                         {
                             // В поставщика указываем того поставщика что выбран в поле
                             // Для этого ищем поставщика по наименованию и получаем его Код
-                            IdManufacruer = AllManufacturers.Where(x => x.Name == tbManufacturer.SelectedItem.ToString()).First().Id,
+                            IdManufacturer = AllManufacturers.Where(x => x.Name == tbManufacturer.SelectedItem.ToString()).First().Id,
                             // В пластинку указываем пластинку которая выбрана в поле
                             // Для этого находим пластинку по наименованию и указываем её Код
                             IdRecord = AllRecords.Where(x => x.Name == tbRecord.SelectedItem.ToString()).First().Id,
@@ -105,7 +105,7 @@ namespace VinylRecordsApplication.Pages.Supply
                         // Если данные существуют, значит необходимо изменить
                         // В поставщика указываем того поставщика что выбран в поле
                         // Для этого ищем поставщика по наименованию и получаем его Код
-                        changeSupply.IdManufacruer = AllManufacturers.Where(x => x.Name == tbManufacturer.SelectedItem.ToString()).First().Id;
+                        changeSupply.IdManufacturer = AllManufacturers.Where(x => x.Name == tbManufacturer.SelectedItem.ToString()).First().Id;
                         // В пластинку указываем пластинку которая выбрана в поле
                         // Для этого находим пластинку по наименованию и указываем её Код
                         changeSupply.IdRecord = AllRecords.Where(x => x.Name == tbRecord.SelectedItem.ToString()).First().Id;
