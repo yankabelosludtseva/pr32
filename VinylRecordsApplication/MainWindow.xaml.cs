@@ -24,5 +24,10 @@ namespace VinylRecordsApplication
         {
             InitializeComponent();
         }
+
+        public void OpenPage(Page pages)
+        {
+            frame.Navigate(pages);
+        }
     }
 }
