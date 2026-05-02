@@ -5,8 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VinylRecordsApplication"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Учёт поставок виниловых пластинок"
+        Height="450"
+        Width="800"
+        MinWidth="800"
+        MinHeight="450">
     <Grid>
-        
+        <!-- Меню -->
+        <Menu Height="25" VerticalAlignment="Top">
+            <!-- Элемент меню пластинки -->
+            <MenuItem Header="Пластинки" Height="25">
+                <!-- Элемент меню список -->
+                <MenuItem Header="Список" Click="OpenRecordList"></MenuItem>
+                <!-- Элемент меню добавить виниловые пластинки -->
+                <MenuItem Header="Добавить" Click="OpenRecordAdd"></MenuItem>
+                <!-- Элемент меню экспортировать виниловые пластинки -->
+                <MenuItem Header="Экспортировать" Click="ExportRecord"></MenuItem>
+            </MenuItem>
+            <!-- Элемент меню поставщики -->
+            <MenuItem Header="Поставщики">
+                <!-- Элемент меню список поставщиков -->
+                <MenuItem Header="Список" Click="OpenManufacturersList"></MenuItem>
+                <!-- Элемент меню добавить поставщиков -->
+                <MenuItem Header="Добавить" Click="OpenManufacturersAdd"></MenuItem>
+            </MenuItem>
+            <!-- Элемент меню поставки -->
+            <MenuItem Header="Поставки">
+                <!-- Элемент меню список поставок -->
+                <MenuItem Header="Список" Click="OpenSupplyList"></MenuItem>
+                <!-- Элемент меню добавить поставку -->
+                <MenuItem Header="Добавить" Click="OpenSupplyAdd"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Состояния">
+                <MenuItem Header="Список" Click="OpenStateList"/>
+                <MenuItem Header="Добавить" Click="OpenStateAdd"/>
+            </MenuItem>
+        </Menu>
+        <!-- Элемент Frame, позволяет открывать страницы внутри окна -->
+        <Frame x:Name="frame" NavigationUIVisibility="Hidden" Margin="0,25,0,0"/>
     </Grid>
 </Window>
