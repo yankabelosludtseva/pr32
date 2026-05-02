@@ -84,6 +84,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Pages\Records\Elements\Record.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\Records\Main.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -110,6 +114,9 @@
     </Compile>
     <Compile Include="Pages\Manufacturer\Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Records\Elements\Record.xaml.cs">
+      <DependentUpon>Record.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Records\Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
@@ -155,7 +162,6 @@
     <Resource Include="Image\ic_VinilRecord.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Pages\Records\Elements\" />
     <Folder Include="Pages\Supply\Elements\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
