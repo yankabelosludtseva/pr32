@@ -20,9 +20,13 @@ namespace VinylRecordsApplication.Pages.State
     /// </summary>
     public partial class Main : Page
     {
+        public IEnumerable<Classes.State> AllState = Classes.State.AllState();
         public Main()
         {
             InitializeComponent();
+            foreach(var State in AllState)
+                stateParent.Children.Add(new Pages.State.Elements.State(State, this));
         }
+
     }
 }
