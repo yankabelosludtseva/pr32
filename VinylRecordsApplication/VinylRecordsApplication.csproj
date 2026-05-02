@@ -68,6 +68,7 @@
     <Compile Include="Classes\Manufacturer.cs" />
     <Compile Include="Classes\Record.cs" />
     <Compile Include="Classes\State.cs" />
+    <Compile Include="Classes\Supply.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
