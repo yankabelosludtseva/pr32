@@ -66,6 +66,7 @@
     <Compile Include="Classes\Country.cs" />
     <Compile Include="Classes\DBConnection.cs" />
     <Compile Include="Classes\Manufacturer.cs" />
+    <Compile Include="Classes\Record.cs" />
     <Compile Include="Classes\State.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -80,6 +81,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Manufacturer\Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Records\Main.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -104,6 +109,9 @@
       <DependentUpon>Manufacturer.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\Manufacturer\Main.xaml.cs">
+      <DependentUpon>Main.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Records\Main.xaml.cs">
       <DependentUpon>Main.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\State\Add.xaml.cs">
